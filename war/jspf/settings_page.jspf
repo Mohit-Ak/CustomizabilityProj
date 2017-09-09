@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+    <!--<![endif]-->
+    <!-- BEGIN HEAD -->
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Customizability Project | Settings Page</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <meta content="The Home Page of the user is where the user is shown the headlines of the different news articles." name="description" />
+        <meta content="University of Buffalo" name="author" />
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+        <!-- BEGIN LAYOUT FIRST STYLES -->
+        <link href="//fonts.googleapis.com/css?family=Oswald:400,300,700" rel="stylesheet" type="text/css" />
+        <!-- END LAYOUT FIRST STYLES -->
+    	<%@ include file="common_css_to_include.jspf"%>
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <link href="../assets/global/plugins/ion.rangeslider/css/ion.rangeSlider.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/ion.rangeslider/css/ion.rangeSlider.skinModern.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/bootstrap-summernote/summernote.css" rel="stylesheet" type="text/css" />
+        <!-- END PAGE LEVEL PLUGINS -->        
+    <!-- END HEAD -->
+    <script type="text/javascript">
+    	from_el="${noOfArticlesBean.noOfEconomyLiberal}";
+    	from_ec="${noOfArticlesBean.noOfEconomyConservative}";
+    	from_hl="${noOfArticlesBean.noOfHealthCareLiberal}";
+    	from_hc="${noOfArticlesBean.noOfHealthCareConservative}";
+    	from_cl="${noOfArticlesBean.noOfCrimeLiberal}";
+    	from_cc="${noOfArticlesBean.noOfCrimeConservative}";
+    </script>
+    <body class="page-header-fixed page-sidebar-closed-hide-logo page-md">
+        <!-- BEGIN CONTAINER -->
+        <div class="wrapper">
+            <!-- BEGIN HEADER -->
+            	<%@ include file="../jspf/header.jspf"%>
+            <!-- END HEADER -->
+            <div class="container-fluid">
+                <div class="page-content">
+                    <!-- BEGIN BREADCRUMBS -->
+<!--                     <div class="breadcrumbs"> -->
+<!--                         <h1>User Settings</h1> -->
+<!--                         <ol class="breadcrumb"> -->
+<!--                             <li> -->
+<!--                                 <a href="#">Login</a> -->
+<!--                             </li> -->
+<!--                             <li class="active">User Settings</li> -->
+<!--                         </ol> -->
+                       
+<!--                     </div> -->
+                    <!-- END BREADCRUMBS -->
+                    <!-- BEGIN SIDEBAR CONTENT LAYOUT -->
+                    <div class="page-content-container custom_settings_page" id="custom_settings_page">
+                        <div class="page-content-row">
+                            
+                            <div class="page-content-col">
+                                <!-- BEGIN PAGE BASE CONTENT -->
+                                
+                                <div class="m-heading-1 border-green m-bordered">
+                                    <h3>Settings</h3>
+                                    <p>
+                                      	Please indicate how many articles on each topic you would like to see from the following sources.
+                                    </p>
+                                </div>
+                                <div class="m-heading-1 border-red m-bordered make-red" style="display : none;" id="all_none_error">
+                                    <h3>Sorry!</h3>
+                                    <p>
+                                      	This website evaluation requires that you select to read at least some articles. Please use sliders to select to see some articles.
+                                    </p>
+                                </div>
+                                
+                                <c:forEach items="${settingsTopicsOrderList}" var="orderNumber">
+                                	<c:if test="${orderNumber eq 1}">
+                                		<div class="row">
+		                                    <div class="col-md-12">
+		                                        <!-- BEGIN PORTLET-->
+		                                        <div class="portlet light form-fit bordered">
+		                                            <div class="portlet-title">
+		                                                <div class="caption">
+		                                                    <i class="icon-settings font-dark"></i>
+		                                                    <span class="caption-subject font-dark sbold uppercase">Economy</span>
+		                                                </div>
+		                                            </div>
+		                                            <c:forEach items="${liberalConsOrderInTopics[0]}" var="libConOrderEconomy">
+			                                            <c:if test="${libConOrderEconomy eq 0}">
+				                                            <div class="portlet-body form">
+				                                                <form role="form" class="form-horizontal form-bordered">
+				                                                    <div class="form-body">
+				                                                        <div class="form-group">
+				                                                            <label class="col-md-3 control-label"> NBC News, The Huffington Post, NPR and other news outlets expressing liberal views on Economy.</label>
+				                                                            <div class="col-md-7 slide_wrapper slide_wrapper_el">
+				                                                                <input id="range_el" type="text" value="" />
+				<!--                                                                 <span class="help-block"> Select the frequency of the documents </span> -->
+				                                                            </div>
+				                                                            <div class="note note-info col-md-2">
+				                                                    				Please drag the slider into the desired position.
+				                                                			</div>
+				                                                             
+				                                                        </div>
+				                                                    </div>
+				                                                </form>
+				                                            </div>
+			                                            </c:if>
+			                                            <c:if test="${libConOrderEconomy eq 1}">
+				                                             <div class="portlet-body form">
+				                                                <form role="form" class="form-horizontal form-bordered">
+				                                                    <div class="form-body">
+				                                                        <div class="form-group">
+				                                                            <label class="col-md-3 control-label">Fox News, Breitbart, Rush Limbaugh and other news outlets expressing conservative views on Economy.</label>
+				                                                            <div class="col-md-7 slide_wrapper slide_wrapper_ec">
+				                                                                <input id="range_ec" type="text" value="" />
+				                                                            </div>
+				                                                            <div class="note note-info col-md-2">
+				                                                    				Please drag the slider into the desired position.
+				                                                			</div>
+				                                                        </div>
+				                                                    </div>
+				                                                </form>
+				                                            </div>
+				                                    	</c:if>
+		                                            </c:forEach>
+		                                        </div>
+		                                        <!-- END PORTLET-->
+		                                    </div>
+		                                </div>
+                                	</c:if>
+                                	<c:if test="${orderNumber eq 2}">
+                                 		<div class="row">
+		                                    <div class="col-md-12">
+		                                        <!-- BEGIN PORTLET-->
+		                                        <div class="portlet light form-fit bordered">
+		                                            <div class="portlet-title">
+		                                                <div class="caption">
+		                                                    <i class="icon-settings font-dark"></i>
+		                                                    <span class="caption-subject font-dark sbold uppercase">Healthcare</span>
+		                                                </div>
+		                                            </div>
+		                                            <c:forEach items="${liberalConsOrderInTopics[1]}" var="libConOrderHealthCare">
+			                                            <c:if test="${libConOrderHealthCare eq 0}">
+				                                            <div class="portlet-body form">
+				                                                <form role="form" class="form-horizontal form-bordered">
+				                                                    <div class="form-body">
+				                                                        
+				                                                        <div class="form-group">
+				                                                            <label class="col-md-3 control-label"> NBC News, The Huffington Post, NPR and other news outlets expressing liberal views on Healthcare.</label>
+				                                                            <div class="col-md-7 slide_wrapper slide_wrapper_hl">
+				                                                                <input id="range_hl" type="text" value="" />
+				                                                            </div>
+				                                                            <div class="note note-info col-md-2">
+				                                                    				Please drag the slider into the desired position.
+				                                                			</div>
+				                                                        </div>
+				                                                    </div>
+				                                                </form>
+				                                            </div>
+				                                         </c:if>
+				                                         <c:if test="${libConOrderHealthCare eq 1}">
+				                                             <div class="portlet-body form">
+				                                                <form role="form" class="form-horizontal form-bordered">
+				                                                    <div class="form-body">
+				                                                        
+				                                                        <div class="form-group">
+				                                                            <label class="col-md-3 control-label">Fox News, Breitbart, Rush Limbaugh and other news outlets expressing conservative views on Healthcare.</label>
+				                                                            <div class="col-md-7 slide_wrapper slide_wrapper_hc">
+				                                                                <input id="range_hc" type="text" value="" />
+				                                                            </div>
+				                                                            <div class="note note-info col-md-2">
+				                                                    				Please drag the slider into the desired position.
+				                                                			</div>
+				                                                        </div>
+				                                                    </div>
+				                                                </form>
+				                                            </div>
+				                                         </c:if>
+				                                     </c:forEach>
+		                                        </div>
+		                                        <!-- END PORTLET-->
+		                                    </div>
+                                		</div>
+                                	</c:if>
+                                	<c:if test="${orderNumber eq 3}">
+		                                <div class="row">
+		                                    <div class="col-md-12">
+		                                        <!-- BEGIN PORTLET-->
+		                                        <div class="portlet light form-fit bordered">
+		                                            <div class="portlet-title">
+		                                                <div class="caption">
+		                                                    <i class="icon-settings font-dark"></i>
+		                                                    <span class="caption-subject font-dark sbold uppercase">Crime</span>
+		                                                </div>
+		                                            </div>
+		                                            <c:forEach items="${liberalConsOrderInTopics[2]}" var="libConOrderCrime">
+			                                            <c:if test="${libConOrderCrime eq 0}">
+				                                            <div class="portlet-body form">
+				                                                <form role="form" class="form-horizontal form-bordered">
+				                                                    <div class="form-body">
+				                                                        
+				                                                        <div class="form-group">
+				                                                            <label class="col-md-3 control-label"> NBC News, The Huffington Post, NPR and other news outlets expressing liberal views on Crime.</label>
+				                                                            <div class="col-md-7 slide_wrapper slide_wrapper_cl">
+				                                                                <input id="range_cl" type="text" value="" />
+				                                                            </div>
+				                                                            <div class="note note-info col-md-2">
+				                                                    				Please drag the slider into the desired position.
+				                                                			</div>
+				                                                        </div>
+				                                                    </div>
+				                                                </form>
+				                                            </div>
+				                                        </c:if>
+				                                        <c:if test="${libConOrderCrime eq 1}">
+				                                            <div class="portlet-body form">
+				                                                <form role="form" class="form-horizontal form-bordered">
+				                                                    <div class="form-body">
+				                                                        
+				                                                        <div class="form-group">
+				                                                            <label class="col-md-3 control-label">Fox News, Breitbart, Rush Limbaugh and other news outlets expressing conservative views on Crime.</label>
+				                                                            <div class="col-md-7 slide_wrapper slide_wrapper_cc">
+				                                                                <input id="range_cc" type="text" value="" />
+				                                                            </div>
+				                                                            <div class="note note-info col-md-2">
+				                                                    				Please drag the slider into the desired position.
+				                                                			</div>
+				                                                        </div>
+				                                                    </div>
+				                                                </form>
+				                                            </div>
+					                                   </c:if>
+					                               </c:forEach>
+		                                        </div>
+		                                        <!-- END PORTLET-->
+		                                    </div>
+		                                </div>
+                                	</c:if>
+                                </c:forEach>
+                                <div class="form-actions">
+	                                 <div class="row">
+	                                     <div class="col-md-offset-9 col-md-9">
+	                                         <button type="button" id="customSettingsSubmit" class="btn green-haze">SAVE</button>
+	                                     </div>
+	                                 </div>
+	                            </div>
+                                
+                               
+                                <!-- END PAGE BASE CONTENT -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END SIDEBAR CONTENT LAYOUT -->
+                </div>
+                <!-- BEGIN FOOTER -->
+               		<%@ include file="../jspf/footer.jspf"%>
+                <!-- END FOOTER -->
+            </div>
+        </div>
+        <!-- END CONTAINER -->
+       
+        <!--[if lt IE 9]>
+<script src="../assets/global/plugins/respond.min.js"></script>
+<script src="../assets/global/plugins/excanvas.min.js"></script> 
+<script src="../assets/global/plugins/ie8.fix.min.js"></script> 
+<![endif]-->
+        <!-- Load Scripts -->
+		<%@ include file="common_js_to_include.jspf"%>
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <script src="../assets/global/plugins/ion.rangeslider/js/ion.rangeSlider.min.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/bootstrap-markdown/lib/markdown.js" type="text/javascript"></script>
+        <script src="./../assets/global/plugins/bootstrap-markdown/js/bootstrap-markdown.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/bootstrap-summernote/summernote.min.js" type="text/javascript"></script>
+        <!-- END PAGE LEVEL PLUGINS -->
+        
+        <!-- BEGIN PAGE LEVEL SCRIPTS -->
+        <script src="../custom_js/page_specific/customizability-ion-sliders.js" type="text/javascript"></script>
+        <script src="../custom_js/page_specific/custom_settings.js" type="text/javascript"></script>
+        <!-- END PAGE LEVEL SCRIPTS -->
+        
+    </body>
+	<script type="text/javascript">
+      userId=${userId}
+    </script>
+</html>

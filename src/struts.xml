@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <package name="default" extends="struts-default" namespace="/">
+        <action name="getTutorial" class="org.arpit.javaPostsForLearning.TutorialAction">
+            <result name="success">TutorialView.jsp</result>
+            <result name="error">Error.jsp</result>
+        </action>
+        <action name="UserLogin" class="com.ub.customizability.actionclasses.LoginAction">
+            <result name="success">jsp/LoginPage.jsp</result>
+            <result name="error">Error.jsp</result>
+        </action>
+        <action name="UserSettings" class="com.ub.customizability.actionclasses.SettingsActions">
+            <result name="success">jsp/SettingsPage.jsp</result>
+            <result name="error">Error.jsp</result>
+        </action>
+        <action name="Home" class="com.ub.customizability.actionclasses.HomePageAction">
+            <result name="success">jsp/HomePage.jsp</result>
+            <result name="error">Error.jsp</result>
+        </action>
+        <action name="Article" class="com.ub.customizability.actionclasses.ArticlePageAction">
+            <result name="success">jsp/ArticlePage.jsp</result>
+            <result name="error">Error.jsp</result>
+        </action>
+    </package>
+</struts>

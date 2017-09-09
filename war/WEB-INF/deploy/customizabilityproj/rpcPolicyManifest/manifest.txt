@@ -1,0 +1,3 @@
+# Module customizabilityproj
+# RPC service class, partial path of RPC policy file
+com.ub.customizability.actions.client.GreetingService, 675B34DD31A7BD7B606156250460A086.gwt.rpc

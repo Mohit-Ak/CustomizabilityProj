@@ -1,0 +1,52 @@
+
+/* .custom_settings_page .slide_wrapper{
+    width: 60%;
+} */
+.custom_settings_page .note {
+    margin: 11px 0 0px;
+}
+.login-page-wrap {
+	width: 600px;
+    margin: 40px auto;
+}
+.user-login-5 .login-container>.login-content p{
+	color:#333333!important;
+}
+
+.page-header .navbar-fixed-top{
+	    background: whitesmoke!important;
+}
+
+body {
+    background: white;
+}
+
+.page-header .navbar .navbar-nav>li:hover>a {
+    color: black;
+    background: white;
+}
+
+.page-header .navbar .navbar-nav>li>a {
+    background: whitesmoke;
+}
+span.irs-bar, span.irs-line, .slide_wrapper span.single{
+	cursor: pointer;
+}
+.customlogout{
+	float: right!important;
+}
+.make-red p,.make-red h3{
+	color : red;
+}
+.custom_home_page .form .form-bordered .form-group{
+	border-bottom : none;
+}
+
+.custom-floatbutton{
+    position: fixed;
+    z-index: 2;
+    right: 1px;
+}
+.custom-header-banner{
+	text-align: center;
+}

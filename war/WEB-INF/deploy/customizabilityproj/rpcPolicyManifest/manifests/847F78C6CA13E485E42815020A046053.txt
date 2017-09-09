@@ -1,0 +1,2 @@
+serviceClass: com.ub.customizability.actions.client.GreetingService
+path: 675B34DD31A7BD7B606156250460A086.gwt.rpc

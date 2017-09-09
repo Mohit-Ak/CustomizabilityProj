@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+    <!--<![endif]-->
+    <!-- BEGIN HEAD -->
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Customizability Project | Home Page</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <meta content="The page is used to select the frequency of the Liberal and Conservative articles that user would want to view for each of the three topics (ECONOMY, HEALTHCARE & CRIME)" name="description" />
+        <meta content="University of Buffalo" name="author" />
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+        <!-- BEGIN LAYOUT FIRST STYLES -->
+        <link href="//fonts.googleapis.com/css?family=Oswald:400,300,700" rel="stylesheet" type="text/css" />
+        <!-- END LAYOUT FIRST STYLES -->
+    	<%@ include file="common_css_to_include.jspf"%>
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <link href="../assets/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/bootstrap-summernote/summernote.css" rel="stylesheet" type="text/css" />
+        <!-- END PAGE LEVEL PLUGINS -->        
+    <!-- END HEAD -->
+
+    <body class="page-header-fixed page-sidebar-closed-hide-logo page-md">
+        
+        <!-- BEGIN CONTAINER -->
+        <div class="wrapper">
+            <!-- BEGIN HEADER -->
+            	<%@ include file="../jspf/header.jspf"%>
+            <!-- END HEADER -->
+            <div class="container-fluid">
+                <div class="page-content">
+               
+                    <!-- BEGIN SIDEBAR CONTENT LAYOUT -->
+                    <div class="page-content-container custom_home_page" id="custom_home_page">
+                        <div class="page-content-row">
+                            
+                            <div class="page-content-col">
+                                <!-- BEGIN PAGE BASE CONTENT -->
+                                
+                                <c:forEach items="${topicsOrderList}" var="orderNumber">
+                                	<c:if test="${orderNumber eq 1}">
+		                                <div class="row">
+		                                    <div class="col-md-12">
+		                                        <div class="portlet light form-fit bordered">
+		                                            <div class="portlet-title">
+		                                                <div class="caption">
+		                                                    <i class="font-dark"></i>
+		                                                    <span class="caption-subject font-dark sbold uppercase">Economy</span>
+		                                                </div>
+		                                            </div>
+		                                           <c:forEach items="${articleBeanList}" var="articleBean">
+		                                           		<c:if test="${articleBean.articleTopic eq'Economy'}">
+															<div class="portlet-body form">
+					                                                <form role="form" class="form-horizontal form-bordered">
+					                                                    <div class="form-body">
+					                                                        
+					                                                        <div class="form-group">
+					                                                            <div class="col-md-12">
+					                                                            	<a href="/Article?articleId=${articleBean.articleId}">
+					                                                    				<c:out value="${articleBean.articleHeadLine}"/>
+					                                                    			</a>
+					                                                			</div>
+					                                                        </div>
+					                                                    </div>
+					                                                </form>
+			                                           		 </div>   													
+														</c:if>
+		                                           </c:forEach>
+		                                        </div>
+		                                    </div>
+		                                </div>
+                                	</c:if>
+                                	
+                                	<c:if test="${orderNumber eq 2}">
+		                                <div class="row">
+		                                    <div class="col-md-12">
+		                                        <div class="portlet light form-fit bordered">
+		                                            <div class="portlet-title">
+		                                                <div class="caption">
+		                                                    <i class="font-dark"></i>
+		                                                    <span class="caption-subject font-dark sbold uppercase">Healthcare</span>
+		                                                </div>
+		                                            </div>
+													 <c:forEach items="${articleBeanList}" var="articleBean">
+		                                           		<c:if test="${articleBean.articleTopic eq'HealthCare'}">
+															<div class="portlet-body form">
+					                                                <form role="form" class="form-horizontal form-bordered">
+					                                                    <div class="form-body">
+					                                                        
+					                                                        <div class="form-group">
+					                                                            <div class="col-md-12">
+					                                                            	<a href="/Article?articleId=${articleBean.articleId}">
+					                                                    				<c:out value="${articleBean.articleHeadLine}"/>
+					                                                    			</a>
+					                                                			</div>
+					                                                        </div>
+					                                                    </div>
+					                                                </form>
+			                                           		 </div>   													
+														</c:if>
+		                                           </c:forEach>                                            
+		                                        </div>
+		                                    </div>
+		                                </div>
+                                	</c:if>
+                                	
+                                	<c:if test="${orderNumber eq 3}">
+		                                <div class="row">
+		                                    <div class="col-md-12">
+		                                        <div class="portlet light form-fit bordered">
+		                                            <div class="portlet-title">
+		                                                <div class="caption">
+		                                                    <i class="font-dark"></i>
+		                                                    <span class="caption-subject font-dark sbold uppercase">Crime</span>
+		                                                </div>
+		                                            </div>
+		                                            <c:forEach items="${articleBeanList}" var="articleBean">
+		                                           		<c:if test="${articleBean.articleTopic eq'Crime'}">
+															<div class="portlet-body form">
+					                                                <form role="form" class="form-horizontal form-bordered">
+					                                                    <div class="form-body">
+					                                                        
+					                                                        <div class="form-group">
+					                                                            <div class="col-md-12">
+					                                                            	<a href="/Article?articleId=${articleBean.articleId}">
+					                                                    				<c:out value="${articleBean.articleHeadLine}"/>
+					                                                    			</a>
+					                                                			</div>
+					                                                        </div>
+					                                                    </div>
+					                                                </form>
+			                                           		 </div>   													
+														</c:if>
+		                                           </c:forEach>      
+		                                        </div>
+		                                    </div>
+		                                </div>
+                                	</c:if>
+                                	<c:if test="${orderNumber eq 4}">
+		                                <div class="row">
+		                                    <div class="col-md-12">
+		                                        <div class="portlet light form-fit bordered">
+		                                            <div class="portlet-title">
+		                                                <div class="caption">
+		                                                    <i class="font-dark"></i>
+		                                                    <span class="caption-subject font-dark sbold uppercase">Entertainment</span>
+		                                                </div>
+		                                            </div>
+		                                            <c:forEach items="${articleBeanList}" var="articleBean">
+		                                           		<c:if test="${articleBean.articleTopic eq'Entertainment'}">
+															<div class="portlet-body form">
+					                                                <form role="form" class="form-horizontal form-bordered">
+					                                                    <div class="form-body">
+					                                                        
+					                                                        <div class="form-group">
+					                                                            <div class="col-md-12">
+					                                                            	<a href="/Article?articleId=${articleBean.articleId}">
+					                                                    				<c:out value="${articleBean.articleHeadLine}"/>
+					                                                    			</a>
+					                                                			</div>
+					                                                        </div>
+					                                                    </div>
+					                                                </form>
+			                                           		 </div>   													
+														</c:if>
+		                                           </c:forEach>      
+		                                        </div>
+		                                    </div>
+		                                </div>
+                                	</c:if>
+                                
+                                </c:forEach>
+                                
+                                <!-- END PAGE BASE CONTENT -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END SIDEBAR CONTENT LAYOUT -->
+                </div>
+                <!-- BEGIN FOOTER -->
+               		<%@ include file="../jspf/footer.jspf"%>
+                <!-- END FOOTER -->
+            </div>
+        </div>
+        <!-- END CONTAINER -->
+       
+        <!--[if lt IE 9]>
+<script src="../assets/global/plugins/respond.min.js"></script>
+<script src="../assets/global/plugins/excanvas.min.js"></script> 
+<script src="../assets/global/plugins/ie8.fix.min.js"></script> 
+<![endif]-->
+        <!-- Load Scripts -->
+		<%@ include file="common_js_to_include.jspf"%>
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <script src="../assets/global/plugins/bootstrap-markdown/lib/markdown.js" type="text/javascript"></script>
+        <script src="./../assets/global/plugins/bootstrap-markdown/js/bootstrap-markdown.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/bootstrap-summernote/summernote.min.js" type="text/javascript"></script>
+        <!-- END PAGE LEVEL PLUGINS -->
+    </body>
+    <script type="text/javascript">
+	    userId=<c:out value="${userId}"/>;
+        experimentTime=<c:out value="${experimentTime}"/>;
+        
+    </script>
+
+</html>
